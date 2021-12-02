@@ -26,7 +26,6 @@
 %\pdfinterwordspaceon
 %\RequirePackage{pdf14}
 
-% -------------------------------------------------------------
 % Set Document Language
 %% -------------------------------------------------------------
 \RequirePackage[british]{babel}
@@ -41,7 +40,8 @@
     columnsep=1.5cm,
     tmargin = 60pt,
     headheight = 48pt,
-    headsep = 6pt,
+    %headsep = 6pt,
+    headsep = 12pt,
     bmargin = 48pt,
     %showframe
     ]
@@ -238,28 +238,46 @@
 	\vskip 4cm
     % title
     \textbf{\@doctype}\par
-    {\huge\noindent\fosfamily\color{Task32Blue}\@title \par}
+    {\huge\noindent\fosfamily\sbseries\@title \par}
     \vskip 12pt
     }% end of maketitle
 
 % -------------------------------------------
 % Chapter and section markings
 % -------------------------------------------
-\renewcommand{\section}{%
-    \@startsection{section}{1}{\z@}
-    {6pt}
-    {3pt}
-    {\color{Task32Blue}\fosfamily\large\sbseries\selectfont}}
-\renewcommand{\subsection}{%
-    \@startsection{subsection}{2}{\z@}
-    {3pt}
-    {1pt}
-    {\color{Task32Blue}\fosfamily\normalsize\sbseries\selectfont}}
-\renewcommand{\subsubsection}{%
-        \@startsection{subsubsection}{3}{\z@}
-        {3pt}
-        {1pt}
-        {\fosfamily\normalsize\sbseries\selectfont}}
+% Formatting based on https://tex.stackexchange.com/questions/523000/titlesec-right-justified-section-number-in-margin
+\usepackage{titlesec}
+
+\newcommand{\marginsecnumber}[1]{%
+  \makebox[0pt][r]{#1\hspace{6pt}}%
+}
+
+% format the section title
+\titleformat{\section}
+  {\fosfamily\Large\sbseries\selectfont}
+  {\marginsecnumber\thesection}
+  {0pt}
+  {}
+% set the spacing around the section title
+\titlespacing{\section}{0pt}{*3}{*1}
+
+% format the subsection title
+\titleformat{\subsection}
+  {\fosfamily\large\sbseries\selectfont}
+  {\marginsecnumber\thesubsection}
+  {0pt}
+  {}
+% set the spacing around the subsection title
+\titlespacing{\subsection}{0pt}{*1}{*1}
+
+% format the subsubsection title
+\titleformat{\subsubsection}
+  {\fosfamily\normalsize\sbseries\selectfont}
+  {\marginsecnumber\thesubsubsection}
+  {0pt}
+  {}
+% set the spacing around the subsubsection title
+\titlespacing{\subsubsection}{0pt}{*1}{*1}
 
 % Format Captions
 % see e.g. http://www.peteryu.ca/tutorials/publishing/latex_captions for details of how to adjust
@@ -288,6 +306,11 @@
     leftmargin=*,
     labelindent=0mm,
     partopsep=0pt}
+
+\newenvironment{tableitemize}
+    {\begin{minipage}[t]{\linewidth}\begin{itemize}[noitemsep,nosep,leftmargin=*]}
+    {\end{itemize}\end{minipage}\vspace{0.9ex}}
+
 
 % --------------------
 % Text blocks
@@ -457,7 +480,7 @@
                 @{}>{\centering}m{.33\textwidth}@{}%
                 @{}>{\raggedleft}m{.34\textwidth}@{}}
     	        % left footer
-    	        {\textbf{IEA Wind Task 32}\\
+    	        {\textbf{IEA Wind Task 32: Wind Lidar}\\
     		        \@shorttitle%
     	        }
     	    &
@@ -485,16 +508,17 @@
     		@{}>{\raggedright}m{.33\textwidth}@{}%
     		@{}>{\centering}m{.33\textwidth}@{}%
     		@{}>{\raggedleft}m{.34\textwidth}@{}}
+    	\rowcolor{white}
     	% left footer
-    	{\textbf{IEA Wind Task 32}\\
+    	{\textbf{IEA Wind Task 32: Wind Lidar}\\
     		\@shorttitle%
     	} &
-    	% center footer
+    	% center header
     	\href{http://creativecommons.org/licenses/by-sa/4.0/}{\includegraphics[height=1.0cm]{graphics/CC-BY-SA.png}}
     	&
-    	% right footer
+    	% right header
         {\DOIbadge{\@DOI} {\footnotesize Version \@version:\ \pubdate}}
-    \end{tabularx}
+    \end{tabularx}%
  	}
     % footers
     \renewcommand{\footrulewidth}{0.5pt}
@@ -508,8 +532,8 @@
 %---------------------------------
 % REDUCE PDF SIZE
 %---------------------------------
-\pdfcompresslevel=9
-\pdfobjcompresslevel=3
+%\pdfcompresslevel=9
+%\pdfobjcompresslevel=3
 
 % fix header spacing
 %\setlength{\headheight}{43pt}

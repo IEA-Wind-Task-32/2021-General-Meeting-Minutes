@@ -1,0 +1,66 @@
+\subsection{Panel discussion: \enquote{Lidar assisted control}}
+
+The panel included:
+
+\begin{itemize}
+    \item Helena Canet, TUM. \textit{Helena’s research focuses on structural design of wind turbines. She has investigated the impact of lidar-assisted control (LAC) on wind turbine cost of energy.}
+    \item Lei Liu, Goldwind. \textit{Lei Liu has five years of experience with LAC at Goldwind working on load reduction and AEP improvement. Goldwind has delivered approximately 1,000 wind turbines with LAC.}
+    \item Irene Miquelez Madariaga, Public University of Navarre. \textit{Irene is working on a LAC project focusing on robust control techniques for LAC.}
+    \item Steven White, ZX Lidars. \textit{ZX Lidars has 18 years of experience with nacelle and hub-mounted lidars for yaw and pitch control. Currently ZX Lidars is participating in the ReLACs lidar-assisted wind turbine control and wind farm control project.}
+    \item Hailong Zhu, Movelaser. \textit{Movelaser develops nacelle-mounted lidars and has delivered approx. 2,000 units.}
+\end{itemize} 
+
+The panelists' perspectives on four main questions are summarized below:
+\begin{enumerate}
+    \item \textbf{What have been the main barriers for LAC so far?} 
+    \begin{itemize}
+        \item Clarity and consistency in understanding cost-benefit tradeoff; good lidar cost models are needed
+        \item Difficulties interfacing LAC with existing turbine feedback controllers creates high entry point to use LAC; complex algorithm compared to feedback controllers, especially when considering more advanced controllers
+        \item Concerns about reliability, availability, and complexity; reduction in cost of energy with LAC is very sensitive to lidar reliability and availability
+        \item Need to more clearly quantify the benefit, especially because of the extra lidar costs for wind plant owners
+        \item Guidance on LAC from third parties is available, but lack of standards for certification
+        \item Different metrics are needed to determine how well lidars will work for LAC applications
+    \end{itemize} 
+    \item \textbf{What opportunities do you see for lidar in wind farm control applications?}
+    \begin{itemize}
+        \item Understanding the wind inflow to the wind farm can be useful, e.g., to provide forecasting for active power control applications or wake steering
+        \item Additional applications beyond individual turbine control can help compensate for the cost of the lidar; but the added benefit of lidar in wind farm control applications is an open question
+    \end{itemize} 
+    \item \textbf{What can we do as the Lidar community to make LAC more attractive?}
+    \begin{itemize}
+        \item Help educate the community on the benefits of LAC; we like to talk about how difficult it is, but we should do a better job explaining easy solutions that currently exist
+        \item Address the complexity of LAC by helping create standards for the design and use of LAC
+        \item Make lidar easier to use for LAC by creating smart lidars that can adapt to changing atmospheric or site conditions, provide ready-to-use signals for LAC and simplifying the certification process
+        \item Continue providing open-source simulation tools to make evaluating LAC more accessible
+        \item Develop lidar cost models, similar to existing wind turbine cost models
+    \end{itemize}
+    \item \textbf{When will we reach 10k turbines running with LAC (Task 32 estimates there are currently around 1k turbines with LAC)?}
+    \begin{itemize}
+        \item 10k turbines with LAC are expected by 2025 (even in China alone); outside of the Chinese market it may take longer, although 10k lidars is still a very small percentage of the approximately 350k turbines currently installed worldwide
+        \item As wind turbines continue to grow larger, the cost of a lidar will represent a smaller fraction of the total cost; this trend is expected to help accelerate the deployment of LAC
+    \end{itemize}
+\end{enumerate}
+        
+Additional questions from the audience:
+\begin{enumerate}
+    \item \textbf{What are the main obstacles to applying LAC on wind farms already in operation?}
+    \begin{itemize}
+        \item Usually it is harder to change a running system
+        \item Retrofit solutions require a new whole process to test and certify the new control system
+    \end{itemize} 
+    \item \textbf{For minute-scale forecasting, fallback options are needed when lidar is unavailable (e.g., because of fog). How is lidar unavailability addressed in LAC applications?}
+    \begin{itemize}
+        \item For fatigue load reduction, lidar availability is not as much of a concern because the benefit will only be decreased by the fraction of time the lidar is unavailable. For extreme load reduction, very high availability is needed because harmful extreme loads could occur at any time.
+        \item In some cases, the turbine may need to be shutdown when the lidar is unavailable to protect against extreme loads
+        \item Lidar availability can be improved by increasing the laser energy, but this adds cost
+        \item Another option discussed in the chat was adjusting the lidar processing parameters based on the signal quality to increase availability (e.g. increasing the averaging time or number of pulses for the Doppler Spectrum)
+    \end{itemize}
+    \item \textbf{Why are robust control techniques considered for LAC? This could make the controllers too conservative, reducing the benefits of LAC.}
+    \begin{itemize}
+        \item There will always be some error between what the lidar measures and the wind that interacts with the turbine. Measurement error models can be developed and accounted for in the controller design. This is different from designing a controller to be robust to all possible lidar failures at all times. Fallback options could be used instead when the lidar is unavailable.
+    \end{itemize}
+\end{enumerate}
+
+\begin{taskactions}
+Lidar-assisted control of wind turbines will be part of the ``universal inflow'' theme in the relaunch of Task 32.
+\end{taskactions}

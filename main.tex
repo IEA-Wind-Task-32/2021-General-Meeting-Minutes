@@ -8,11 +8,14 @@
 %% -----------------------------------
 %% Document information
 %% -----------------------------------
-\def\pubdate{26 November 2020}
-\title{2020 General Meeting}
-\shorttitle{2020 General Meeting}
+\def\pubdate{2 December 2021}
+%\def\pubdate{DRAFT 1.12.2021}
+\version{1.0}
+\title{2021 General Meeting}
+\shorttitle{2021 General Meeting}
 \doctype{IEA Wind Task 32 Meeting Minutes}
-\DOI{10.5281/zenodo.4292208}
+\DOI{10.5281/zenodo.5718668}
+%\DOI{10.5281/zenodo.xxxxxx}
 \addbibresource{bibliography.bib}
 
 %% -----------------------------------
@@ -44,9 +47,9 @@
 \usepackage[titles]{tocloft}
 \setlength{\cftbeforesecskip}{3pt}
 % authors
-\newcommand{\orcid}[1]{\href{https://orcid.org/#1}{\includegraphics[width=12pt]{graphics/ORCIDiD_icon128x128.png}}}
+\newcommand{\orcid}[1]{\raisebox{6pt}{\href{https://orcid.org/#1}{\includegraphics[width=8pt]{graphics/ORCIDiD_icon128x128.png}}}}
 \usepackage{fontawesome}
-\newcommand{\mailme}[1]{\href{mailto:#1}{\faicon{envelope-o}}}
+\newcommand{\mailme}[1]{\raisebox{6pt}{\href{mailto:#1}{\faicon{envelope-o}}}}
 
 %% ===================================
 %:
@@ -64,9 +67,11 @@
 %% Authors
 %% -----------------------------------
 \noindent\begin{minipage}{\columnwidth}
-\textcolor{TextLightGrey}{Authors: Andrew Clifton~\orcid{0000-0001-9698-5083}~\mailme{clifton@ifb.uni-stuttgart.de}, %
-Ines Würth~\orcid{},
-David Schlipf~\orcid{}}
+\textcolor{TextLightGrey}{Andrew Clifton,\orcid{0000-0001-9698-5083} %
+    David Schlipf,\orcid{0000-0002-0189-6422}\mailme{david.schlipf@hs-flensburg.de}
+%Ines Würth,\orcid{0000-0002-1365-0243}~
+    Eric Simley\orcid{0000-0002-1027-9848}
+}
 \end{minipage}
 \vskip 6pt
 
@@ -78,7 +83,7 @@ David Schlipf~\orcid{}}
 }
 \vskip 6pt
 
-The 2020 General Meeting took place online because of the COVID-19 pandemic.  COVID-19 made networking and collaboration harder for everyone during 2020, and so the 2020 General Meeting was designed to let the wind lidar community mingle virtually with their colleagues through a mix of discussion, working groups, and networking sessions.
+The 2021 General Meeting took place online because of the COVID-19 pandemic. The meeting was designed to let the wind lidar community mingle virtually with their colleagues through a mix of discussion, working groups, and networking sessions.
 
 \tableofcontents
 
@@ -86,20 +91,19 @@ The 2020 General Meeting took place online because of the COVID-19 pandemic.  CO
 The presence of a person’s name or company name in this document should not be taken to imply that a person or their employer agrees with any of the opinions set out here.
 
 \newpage
+% day 1
 \input{sections/10-intro-day1}
-\input{sections/11-panel-day1}
-\input{sections/12-working-session-day1}
+\input{sections/12-panel-day1}
 \input{sections/13-networking-day1}
-\newpage
+% day 2
 \input{sections/20-intro-day2}
-\input{sections/21-panel-day2}
-\input{sections/22-working-session-day2}
-\input{sections/23-community-news-day2}
-\newpage
+\input{sections/21-news-day2}
+\input{sections/22-panel-day2}
+\input{sections/23-networking-session-day2}
+% day 3
 \input{sections/30-intro-day3}
-\input{sections/31-panel-day3}
+\input{sections/31-plans-task32-day3}
 \input{sections/32-working-session-day3}
-\input{sections/33-results-day3}
 \input{sections/40-summary}
 \input{sections/participants}
 \input{sections/acknowledgements}
@@ -137,27 +141,23 @@ The presence of a person’s name or company name in this document should not be
 		%% -----------------------------------
 		
 		\begin{tabular}{m{0.3\columnwidth}m{0.6\columnwidth}}
-			\rowcolor{white}
-			\multicolumn{2}{p{0.9\columnwidth}}{%
+		    \multicolumn{2}{p{0.9\columnwidth}}{%
 			This document was self published by IEA Wind Task 32.
 			}\\
 			% IEA Wind * DO NOT EDIT THIS TEXT *
-			\rowcolor{white}
 			\includegraphics[height=2cm]{graphics/IEAWind_logo.jpg}  &
-			The International Energy Agency is an autonomous organisation which works to ensure reliable, affordable and clean energy for its 30 member countries and beyond. The IEA Wind Technology Collaboration Programme supports the work of 38 independent, international groups of experts that enable governments and industries from around the world to lead programmes and projects on a wide range of energy technologies and related issues.%
+			The International Energy Agency is an autonomous organisation which works to ensure reliable, affordable and clean energy for its 30 member countries and beyond. The \href{https://iea-wind.org/}{IEA Wind Technology Collaboration Programme} supports the work of 38 independent, international groups of experts that enable governments and industries from around the world to lead programmes and projects on a wide range of energy technologies and related issues.%
 			\\
 			% Task 32 * DO NOT EDIT THIS TEXT *
-			\rowcolor{white}
 			\includegraphics[height=1.5cm]{graphics/Task32_logo.jpg} &
-			\href{https://community.ieawind.org/task32/home}{IEA Wind Task 32} exists to identify and mitigate the barriers to the deployment of wind lidar for wind energy applications.\\
+			\href{https://iea-wind.org/task32}{IEA Wind Task 32} exists to identify and mitigate the barriers to the deployment of wind lidar for wind energy applications.\\
 			% authors, etc
-			\rowcolor{white}
 			\multicolumn{2}{p{0.9\columnwidth+2\tabcolsep}}{%
 		%% -----------------------------------
 		%% For more information
 		%% -----------------------------------
 		% N.B. do not add line breaks between the next items
-		\textbf{For more information:} See the  \href{https://community.ieawind.org/task32/home}{Task 32 website}.
+		\textbf{For more information:} See the  \href{https://iea-wind.org/task32/}{Task 32 website}.
 		%% -----------------------------------
 		%% Authors
 		%% -----------------------------------
@@ -188,7 +188,5 @@ The presence of a person’s name or company name in this document should not be
 \vspace*{\fill}
 
 \newpage
-\input{sections/33-slides-day3}
-
 
 \end{document}
